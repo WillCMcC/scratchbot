@@ -1,0 +1,11 @@
+{
+  "name": "scratchbot-cli",
+  "version": "0.0.0",
+  "scripts": {
+    "register-app": "node register-app.js",
+    "test": "echo \"No tests\""
+  },
+  "dependencies": {
+    "@octokit/request": "^6.2.8"
+  }
+}
