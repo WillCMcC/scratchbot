@@ -1,8 +1,12 @@
 {
   "name": "scratchbot-cli",
   "version": "0.0.0",
+  "bin": {
+    "scratchbot": "dist/cli.js"
+  },
   "scripts": {
     "register-app": "node register-app.js",
+    "build": "tsc src/cli.ts --outDir dist",
     "test": "echo \"No tests\""
   },
   "dependencies": {
