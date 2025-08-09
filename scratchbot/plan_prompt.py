@@ -5,6 +5,9 @@ model or return stubbed JSON for deterministic tests. If the environment
 variable ``SCRATCHBOT_PLAN_JSON`` points to a file, its contents are returned
 instead of contacting the API. Otherwise the ``openai`` package is used with
 the API key in ``OPENAI_API_KEY``.
+
+By default the helper targets the ``gpt-5`` model. Set ``OPENAI_MODEL`` to
+override the model name when contacting the API.
 """
 
 from __future__ import annotations
@@ -25,7 +28,7 @@ def call_openai(prompt: str) -> str:
     ``SCRATCHBOT_PLAN_JSON`` may point to a JSON file used for deterministic
     testing. When unset, the function attempts to call the real OpenAI API
     using the ``openai`` package. Set ``OPENAI_API_KEY`` and optionally
-    ``OPENAI_MODEL`` to choose the model name.
+    ``OPENAI_MODEL`` to choose the model name. When unset, ``gpt-5`` is used.
     """
 
     stub_path = os.environ.get("SCRATCHBOT_PLAN_JSON")
@@ -40,7 +43,7 @@ def call_openai(prompt: str) -> str:
         ) from exc
 
     client = OpenAI()
-    model = os.environ.get("OPENAI_MODEL", "gpt-4o-mini")
+    model = os.environ.get("OPENAI_MODEL", "gpt-5")
     response = client.responses.create(model=model, input=prompt)
     return response.output_text
 
@@ -60,8 +63,14 @@ def generate_docs_plan(
         call_model = call_openai
 
     prompt = (
-        "You are ScratchBot. Given the diff, file tree and symbol summaries, "
-        "produce a JSON object with keys 'missing' and 'needs_update'."\
+        "You are ScratchBot, an expert documentation planner.\n"
+        "Analyze the repository diff, file tree, and symbol summaries to"
+        " determine which documentation is missing or needs updates.\n"
+        "Respond with **only** a JSON object using double quotes and exactly"
+        " two keys:\n"
+        "  - \"missing\": list of documentation files to create\n"
+        "  - \"needs_update\": list of documentation files to modify\n"
+        "Return valid JSON with no extra commentary."
     )
     prompt += "\nDiff:\n" + context["diff"]
     prompt += "\nFile Tree:\n" + context["file_tree"]
