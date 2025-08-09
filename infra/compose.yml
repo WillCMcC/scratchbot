@@ -10,6 +10,9 @@ services:
     depends_on:
       - postgres
       - redis
+    environment:
+      POSTGRES_URL: postgres://postgres:example@postgres:5432/postgres
+      REDIS_URL: redis://redis:6379
 
   worker:
     build:
@@ -18,6 +21,9 @@ services:
     depends_on:
       - postgres
       - redis
+    environment:
+      POSTGRES_URL: postgres://postgres:example@postgres:5432/postgres
+      REDIS_URL: redis://redis:6379
 
   ui:
     build:
