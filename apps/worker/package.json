@@ -12,7 +12,6 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
-    "@redis/server": "^1.0.0",
     "bullmq": "^5.0.0"
   }
 }

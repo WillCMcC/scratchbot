@@ -6,6 +6,7 @@
     "test": "echo \"No tests\""
   },
   "dependencies": {
+    "bullmq": "^5.0.0",
     "fastify": "^4.26.2"
   }
 }
