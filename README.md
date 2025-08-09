@@ -7,6 +7,26 @@
 - TypeScript compiler (`tsc`)
 - Optional: GitHub token via the `GITHUB_TOKEN` environment variable
 
+## Environment Variables
+
+ScratchBot reads several environment variables to enable optional features and
+external integrations:
+
+- `GITHUB_TOKEN` – used for GitHub operations that require authentication.
+- `OPENAI_API_KEY` – API key for generating documentation plans with the
+  OpenAI service.
+- `OPENAI_MODEL` – optional model name when contacting OpenAI (defaults to
+  `gpt-5`).
+- `SCRATCHBOT_PLAN_JSON` – path to a JSON file used to stub model responses
+  during testing.
+- `GITHUB_CLIENT_ID` – GitHub OAuth client ID for the UI device flow.
+- `GITHUB_APP_SLUG` – slug of the GitHub App used to construct installation
+  URLs.
+- `GITHUB_WEBHOOK_SECRET` – secret for verifying GitHub webhook payloads.
+- `REDIS_URL` – connection string for the Redis instance used by the API and
+  worker processes (defaults to `redis://localhost:6379`).
+- `PORT` – port on which the API service listens (defaults to `3000`).
+
 ## Typical Workflow
 
 1. **Run the analyzer** to scan the repository:
