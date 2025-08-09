@@ -8,11 +8,11 @@ Legend: ☐ todo · ☐/☑ substeps · ⭐ critical path · 🧪 human test · 
 
 ## Phase 0 — Bootstrap & Naming
 
-- ☐ Rename project artifacts from DocBot → **ScratchBot** (repo name, package names, UI strings, commit messages)
+- ☑ Project artifacts use **ScratchBot** branding (repo name, package names, UI strings, commit messages)
 
   - 🧪 Test: Open any PR comment from the bot; it should say “ScratchBot” everywhere.
 
-- ☐ Initialize monorepo or polyrepo (api, worker, ui, cli, infra)
+- ☑ Initialize monorepo or polyrepo (api, worker, ui, cli, infra)
 
   - 🧰 `apps/api`, `apps/worker`, `apps/ui`, `packages/cli`, `infra/compose.yml`
 
