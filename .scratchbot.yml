@@ -1,0 +1,6 @@
+commit_mode: per_file
+docs_dir: docs
+include: []
+exclude: []
+thresholds:
+  loc: 300
