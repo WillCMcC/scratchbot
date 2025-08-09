@@ -1,0 +1,11 @@
+{
+  "name": "scratchbot",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "test": "node scratchbot/ts_parser.js scratchbot/ts_parser.js >/dev/null"
+  },
+  "dependencies": {
+    "typescript": "^5.4.5"
+  }
+}
