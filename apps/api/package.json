@@ -1,0 +1,11 @@
+{
+  "name": "scratchbot-api",
+  "version": "0.0.0",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"No tests\""
+  },
+  "dependencies": {
+    "fastify": "^4.26.2"
+  }
+}
